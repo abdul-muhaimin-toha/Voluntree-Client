@@ -50,7 +50,7 @@ const Hero = () => {
       </Swiper>
       <div className="absolute left-1/2 top-1/2 z-50 flex  w-full -translate-x-1/2  -translate-y-1/2 items-center justify-center  p-10">
         <div className="flex max-w-full flex-col  text-center md:max-w-3xl">
-          <h1 className="mb-8 text-3xl font-bold uppercase text-white md:text-6xl">
+          <h1 className="mb-8 text-3xl font-bold uppercase text-white md:text-5xl">
             Connect with Volunteers or Serve Your Community, Join Today!
           </h1>
           <p className="font-semibolod mb-8 text-sm text-white md:text-base">

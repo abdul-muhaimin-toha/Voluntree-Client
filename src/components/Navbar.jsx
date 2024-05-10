@@ -73,7 +73,7 @@ const Navbar = () => {
                   aria-label="close sidebar"
                   className="drawer-overlay"
                 ></label>
-                <ul className="menu min-h-full w-2/3 gap-8 bg-black p-8 text-white md:w-2/6 dark:bg-white dark:text-black">
+                <ul className="menu min-h-full w-2/3 gap-8 bg-black p-8 tracking-widest text-white md:w-2/6 dark:bg-white dark:text-black">
                   <Link to="/" className="justify-left flex items-center">
                     <h2 className="font-logo text-4xl text-primary">
                       voluntree
@@ -84,6 +84,12 @@ const Navbar = () => {
                     className=" uppercase outline-none transition-all duration-150 hover:bg-transparent hover:text-primary"
                   >
                     Home
+                  </Link>
+                  <Link
+                    to="/volunteer-opportunities"
+                    className=" uppercase outline-none transition-all duration-150 hover:bg-transparent hover:text-primary"
+                  >
+                    Volunteer Opportunities
                   </Link>
 
                   {!user && (
@@ -107,13 +113,42 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal gap-9 text-base font-medium uppercase text-white dark:text-black">
+            <ul className="menu menu-horizontal gap-9 text-base font-medium uppercase tracking-widest text-white dark:text-black">
               <Link
                 to="/"
                 className=" outline-none transition-all duration-150 hover:bg-transparent hover:text-primary"
               >
                 Home
               </Link>
+              <Link
+                to="/volunteer-opportunities"
+                className=" outline-none transition-all duration-150 hover:bg-transparent hover:text-primary"
+              >
+                Volunteer Opportunities
+              </Link>
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="outline-none transition-all duration-150 hover:bg-transparent hover:text-primary"
+                >
+                  My Profile
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu dropdown-content menu-sm z-[1] mt-8 w-80 space-y-3  rounded-sm  bg-black p-3 text-white shadow dark:bg-white dark:text-black"
+                >
+                  <Link className="uppercase hover:text-primary">
+                    Add Volunteer Post
+                  </Link>
+                  <Link className="uppercase hover:text-primary">
+                    Manage My Post
+                  </Link>
+                  <Link className="uppercase hover:text-primary">
+                    My Volunteer Requested Post
+                  </Link>
+                </ul>
+              </div>
             </ul>
           </div>
           <div className="navbar-end gap-3 md:gap-4 lg:gap-8">
