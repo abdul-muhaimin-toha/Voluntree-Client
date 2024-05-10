@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import HomeVolunteerNeedCard from "./HomeVolunteerNeedCard";
 import SectionHeading from "./SectionHeading";
 import { FaArrowAltCircleRight } from "react-icons/fa";
+import useSixPost from "../hooks/useSixPost.jsx";
 
 const VolunteersNeedNow = () => {
+  const { data, isPending, refetch, isError, error } = useSixPost();
   return (
     <>
       <section>
@@ -13,12 +15,9 @@ const VolunteersNeedNow = () => {
             subHeading="Explore Exciting Roles and Join a Cause You Believe In"
           />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-16 lg:grid-cols-3">
-            <HomeVolunteerNeedCard />
-            <HomeVolunteerNeedCard />
-            <HomeVolunteerNeedCard />
-            <HomeVolunteerNeedCard />
-            <HomeVolunteerNeedCard />
-            <HomeVolunteerNeedCard />
+            {data?.map((post) => (
+              <HomeVolunteerNeedCard key={post._id} post={post} />
+            ))}
           </div>
           <div className="mt-10 flex justify-center">
             <Link
