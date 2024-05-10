@@ -9,6 +9,7 @@ import SignInPage from "./pages/SignInPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import AddVolunteerPostPage from "./pages/AddVolunteerPostPage";
 import VolunteerPostDetailsPage from "./pages/VolunteerPostDetailsPage";
+import BeAVolunteerPage from "./pages/BeAVolunteerPage";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ export const router = createBrowserRouter(
       <Route path="volunteer-opportunities" element={<RegistrationPage />} />
       <Route path="add-volunteer-post" element={<AddVolunteerPostPage />} />
       <Route path="post-details/:id" element={<VolunteerPostDetailsPage />} />
+      <Route path="be-a-volunteer/:id" element={<BeAVolunteerPage />} />
     </Route>,
   ),
 );
