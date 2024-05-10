@@ -7,6 +7,7 @@ import RootLayout from "./RootLayout";
 import HomePage from "./pages/HomePage";
 import SignInPage from "./pages/SignInPage";
 import RegistrationPage from "./pages/RegistrationPage";
+import AddVolunteerPostPage from "./pages/AddVolunteerPostPage";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -15,6 +16,7 @@ export const router = createBrowserRouter(
       <Route path="sign-in" element={<SignInPage />} />
       <Route path="registration" element={<RegistrationPage />} />
       <Route path="volunteer-opportunities" element={<RegistrationPage />} />
+      <Route path="add-volunteer-post" element={<AddVolunteerPostPage />} />
     </Route>,
   ),
 );

@@ -128,7 +128,7 @@ const SignInPage = () => {
                 defaultValue="demouser@gmail.com"
                 type="email"
                 placeholder="Enter your email"
-                className=" border p-4 text-black focus:outline-[#665DCD] dark:border-[#4d4b4b]"
+                className=" border p-4 text-black focus:outline-primary dark:border-primary"
                 {...register("email", {
                   required: {
                     value: true,
@@ -146,7 +146,7 @@ const SignInPage = () => {
                   defaultValue="Demo123123"
                   type={isPassVisible ? "text" : "password"}
                   placeholder="Enter your password"
-                  className="mt-4 w-full border p-4 text-black focus:outline-[#665DCD]  dark:border-[#4d4b4b] "
+                  className="mt-4 w-full border p-4 text-black focus:outline-primary  dark:border-primary "
                   {...register("password", {
                     required: {
                       value: true,
@@ -159,9 +159,9 @@ const SignInPage = () => {
                   onClick={() => setIsPassVisible(!isPassVisible)}
                 >
                   {isPassVisible ? (
-                    <FaEyeSlash className="absolute right-5 top-2/3 -translate-y-1/2 text-2xl text-black focus:outline-[#665DCD]  " />
+                    <FaEyeSlash className="absolute right-5 top-2/3 -translate-y-1/2 text-2xl text-black focus:outline-primary  " />
                   ) : (
-                    <FaEye className="absolute right-5 top-2/3 -translate-y-1/2 text-2xl  text-[#665DCD] " />
+                    <FaEye className="absolute right-5 top-2/3 -translate-y-1/2 text-2xl  text-primary " />
                   )}
                 </p>
               </div>
