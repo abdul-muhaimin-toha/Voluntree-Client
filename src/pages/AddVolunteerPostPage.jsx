@@ -28,7 +28,7 @@ const AddVolunteerPostPage = () => {
       description,
       location,
       volunteers_needed,
-      startDate,
+      deadLine: startDate,
       thumbnail_URL,
       organizer_name,
       organizer_email,
@@ -37,7 +37,7 @@ const AddVolunteerPostPage = () => {
     console.log(newAddedPost);
 
     axios
-      .post("hello", newAddedPost)
+      .post("http://localhost:3000/volunteers", newAddedPost)
       .then(function (response) {
         console.log(response.data);
         if (response.data.insertedId) {
@@ -76,7 +76,7 @@ const AddVolunteerPostPage = () => {
         <div className="flex items-center justify-center py-10">
           <div className="w-full max-w-screen-md rounded p-6 px-2 shadow-2xl md:p-10">
             <h2 className="mx-auto mb-12 mt-6 max-w-2xl text-center text-4xl font-black uppercase text-primary  md:text-5xl">
-              Looking For Volunteers!
+              Looking For Volunteers?
             </h2>
             <form
               onSubmit={handleAddPost}

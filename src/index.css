@@ -13,3 +13,21 @@
 .react-datepicker-wrapper {
   width: 100%;
 }
+
+.input-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 5px;
+  background-image: url("/src/assets/arrow-down.png");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  outline: none;
+}
+.input-select::-ms-expand {
+  display: none;
+}
+
+.input-selected {
+  display: none;
+}
