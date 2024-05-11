@@ -1,11 +1,8 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import useMyPosts from "../hooks/useMyPosts";
-import MyPostTableRow from "../components/MyPostTableRow";
+import MyPostTable from "../components/MyPostTable";
 
 const MyPostPage = () => {
-  const { data } = useMyPosts();
-
   return (
     <section>
       <div className="mx-auto max-w-screen-2xl px-4">
@@ -21,83 +18,9 @@ const MyPostPage = () => {
               </TabList>
 
               <TabPanel className="mt-6">
-                <div className="mt-6 overflow-x-auto md:mt-16">
-                  <table className="table table-xs">
-                    <thead className="text-primary dark:text-white">
-                      <tr>
-                        <th></th>
-                        <th>Post Title</th>
-                        <th>Category</th>
-                        <th>Deadline</th>
-                        <th>Location</th>
-                        <th>Volunteers Need</th>
-                        <th>Update</th>
-                        <th>Delete</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {data?.map((post, index) => (
-                        <MyPostTableRow
-                          key={post._id}
-                          post={post}
-                          index={index}
-                        />
-                      ))}
-                    </tbody>
-                    <tfoot className="text-primary dark:text-white">
-                      <tr>
-                        <th></th>
-                        <th>Post Title</th>
-                        <th>Category</th>
-                        <th>Deadline</th>
-                        <th>Location</th>
-                        <th>Volunteers Need</th>
-                        <th>Update</th>
-                        <th>Delete</th>
-                      </tr>
-                    </tfoot>
-                  </table>
-                </div>
+                <MyPostTable />
               </TabPanel>
-              <TabPanel className="mt-6">
-                <div className="mt-6 overflow-x-auto md:mt-16">
-                  <table className="table table-xs">
-                    <thead className="text-primary dark:text-white">
-                      <tr>
-                        <th></th>
-                        <th>Post Title</th>
-                        <th>Category</th>
-                        <th>Deadline</th>
-                        <th>Location</th>
-                        <th>Volunteers Need</th>
-                        <th>Organizer's Name</th>
-                        <th>Cancel</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {data?.map((post, index) => (
-                        <MyPostTableRow
-                          key={post._id}
-                          post={post}
-                          index={index}
-                        />
-                      ))}
-                    </tbody>
-                    <tfoot className="text-primary dark:text-white">
-                      <tr>
-                        <th></th>
-                        <th>Post Title</th>
-                        <th>Category</th>
-                        <th>Deadline</th>
-                        <th>Location</th>
-                        <th>Volunteers Need</th>
-                        <th>Organizer's Name</th>
-                        <th>Cancel</th>
-                      </tr>
-                    </tfoot>
-                  </table>
-                </div>
-              </TabPanel>
+              <TabPanel className="mt-6"></TabPanel>
             </Tabs>
           </div>
         </div>
