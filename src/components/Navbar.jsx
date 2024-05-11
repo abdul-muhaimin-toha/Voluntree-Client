@@ -97,6 +97,12 @@ const Navbar = () => {
                   >
                     Add Volunteer Post
                   </Link>
+                  <Link
+                    to="/manage-my-posts"
+                    className="uppercase outline-none transition-all duration-150 hover:bg-transparent hover:text-primary"
+                  >
+                    Manage My Posts
+                  </Link>
 
                   {!user && (
                     <Link
@@ -142,7 +148,7 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu dropdown-content menu-sm z-[1] mt-8 w-80 space-y-3  rounded-sm  bg-black p-3 text-white shadow dark:bg-white dark:text-black"
+                  className="menu dropdown-content menu-sm z-[1] mt-8 w-80 space-y-4 rounded-sm  bg-black p-3 text-white shadow dark:bg-white dark:text-black"
                 >
                   <Link
                     to="/add-volunteer-post"

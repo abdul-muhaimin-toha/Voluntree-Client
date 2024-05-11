@@ -14,10 +14,11 @@ import LoggedInRoute from "./PrivateRoutes/LoggedInRoute";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 import MyPostPage from "./pages/MyPostPage";
 import UpdateVolunteerNeedPost from "./pages/UpdateVolunteerNeedPost";
+import ErrorPage from "./pages/ErrorPage";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
+    <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />}>
       <Route index element={<HomePage />} />
       <Route
         path="sign-in"

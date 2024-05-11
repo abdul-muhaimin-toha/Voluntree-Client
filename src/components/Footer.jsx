@@ -9,7 +9,7 @@ const Footer = () => {
             <h2 className="font-logo text-5xl text-primary">voluntree</h2>
           </div>
           <aside className="text-xs text-white md:text-sm dark:text-black">
-            <p className="mt-3 font-bold">Rong Mohol Industries Ltd.</p>
+            <p className="mt-3 font-bold">Voluntree Corporation Ltd.</p>
             <p>Azampur, Uttara, Dhaka, Bangladesh.</p>
             <p>880 17903 49650</p>
             <p>abdulmuhaimintoha.business@gmail.com</p>

@@ -3,6 +3,7 @@ import thumbnail from "../assets/volunteer-post/post-thumnail-1.jpg";
 
 const HomeVolunteerNeedCard = ({ post }) => {
   const { _id, title, thumbnail_URL, deadline, category } = post || {};
+
   return (
     <div className="overflow-hidden rounded-md bg-[#fff] shadow-xl dark:bg-[#000]">
       <img

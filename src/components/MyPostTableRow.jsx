@@ -55,7 +55,7 @@ const MyPostTableRow = ({ post, index }) => {
       <th className="text-[#5FA4E6]">{index + 1}</th>
       <td className="capitalize">{title}</td>
       <td className="capitalize">{category}</td>
-      <td>{deadline}</td>
+      <td>{new Date(deadline).toLocaleDateString()}</td>
       <td>{location}</td>
       <td>{volunteers_needed}</td>
       <td className="text-center text-base text-primary">

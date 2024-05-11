@@ -218,9 +218,8 @@ const BeAVolunteerPage = () => {
                 <label className="font-bold text-primary">Status</label>
                 <input
                   type="text"
-                  disabled
                   name="status"
-                  defaultValue={"requested"}
+                  defaultValue={"Requested"}
                   className="border border-primary p-4  text-black focus:outline-primary"
                 />
               </div>

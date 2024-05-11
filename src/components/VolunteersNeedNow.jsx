@@ -3,9 +3,15 @@ import HomeVolunteerNeedCard from "./HomeVolunteerNeedCard";
 import SectionHeading from "./SectionHeading";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import useSixPost from "../hooks/useSixPost.jsx";
+import Loader from "./Loader.jsx";
 
 const VolunteersNeedNow = () => {
   const { data, isPending, refetch, isError, error } = useSixPost();
+
+  if (isPending) {
+    return <Loader />;
+  }
+
   return (
     <>
       <section>

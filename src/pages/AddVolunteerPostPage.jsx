@@ -28,7 +28,7 @@ const AddVolunteerPostPage = () => {
       description,
       location,
       volunteers_needed,
-      deadLine: startDate,
+      deadline: new Date(startDate),
       thumbnail_URL,
       organizer_name,
       organizer_email,

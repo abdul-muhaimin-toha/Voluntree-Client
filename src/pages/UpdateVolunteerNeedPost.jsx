@@ -31,7 +31,7 @@ const UpdateVolunteerNeedPost = () => {
       description,
       location,
       volunteers_needed,
-      deadline: startDate,
+      deadline: new Date(startDate),
       thumbnail_URL,
       organizer_name,
       organizer_email,
