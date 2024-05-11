@@ -1,6 +1,7 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import MyPostTable from "../components/MyPostTable";
+import MyRequestPostTable from "../components/MyRequestPostTable";
 
 const MyPostPage = () => {
   return (
@@ -20,7 +21,9 @@ const MyPostPage = () => {
               <TabPanel className="mt-6">
                 <MyPostTable />
               </TabPanel>
-              <TabPanel className="mt-6"></TabPanel>
+              <TabPanel className="mt-6">
+                <MyRequestPostTable />
+              </TabPanel>
             </Tabs>
           </div>
         </div>
