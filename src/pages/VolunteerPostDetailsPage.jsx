@@ -21,7 +21,7 @@ const VolunteerPostDetailsPage = () => {
       </HelmetProvider>
       <div className="mx-auto max-w-screen-2xl px-4">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-center py-20">
-          <h2 className="mx-auto mb-12  max-w-4xl text-center text-4xl font-semibold uppercase text-black md:text-5xl dark:text-white">
+          <h2 className="mx-auto mb-12  max-w-4xl text-center text-4xl font-black uppercase text-primary md:text-5xl ">
             Details of {data?.title}
           </h2>
           <div className="grid grid-cols-1 items-stretch justify-center gap-4 md:grid-cols-2 lg:grid-cols-3">
