@@ -150,11 +150,11 @@ const Navbar = () => {
                   >
                     Add Volunteer Post
                   </Link>
-                  <Link className="uppercase hover:text-primary">
-                    Manage My Post
-                  </Link>
-                  <Link className="uppercase hover:text-primary">
-                    My Volunteer Requested Post
+                  <Link
+                    to="/manage-my-posts"
+                    className="uppercase hover:text-primary"
+                  >
+                    Manage My Posts
                   </Link>
                 </ul>
               </div>
