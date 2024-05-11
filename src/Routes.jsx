@@ -13,6 +13,7 @@ import BeAVolunteerPage from "./pages/BeAVolunteerPage";
 import LoggedInRoute from "./PrivateRoutes/LoggedInRoute";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 import MyPostPage from "./pages/MyPostPage";
+import UpdateVolunteerNeedPost from "./pages/UpdateVolunteerNeedPost";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -63,6 +64,14 @@ export const router = createBrowserRouter(
         element={
           <PrivateRoute>
             <MyPostPage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="update-my-post/:id"
+        element={
+          <PrivateRoute>
+            <UpdateVolunteerNeedPost />
           </PrivateRoute>
         }
       />

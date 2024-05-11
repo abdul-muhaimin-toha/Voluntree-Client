@@ -102,6 +102,7 @@ const AddVolunteerPostPage = () => {
                   <option value="Education">Education</option>
                   <option value="Social service">Social service</option>
                   <option value="Animal welfare">Animal welfare</option>
+                  <option value="Environment">Environment</option>
                 </select>
               </div>
               <div className="col-span-1 flex flex-col gap-0.5 md:col-span-2">

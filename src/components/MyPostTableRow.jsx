@@ -1,8 +1,11 @@
 import { FaPenToSquare, FaTrash } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const MyPostTableRow = ({ post, index }) => {
   const { _id, title, category, deadline, location, volunteers_needed } =
     post || {};
+
+  console.log(deadline);
 
   return (
     <tr className="dark:text-white ">
@@ -14,13 +17,13 @@ const MyPostTableRow = ({ post, index }) => {
       <td>{volunteers_needed}</td>
       <td className="text-center text-base text-primary">
         <button>
-          <FaPenToSquare />
+          <Link to={`/update-my-post/${_id}`}>
+            <FaPenToSquare />
+          </Link>
         </button>
       </td>
       <td className="text-center text-base text-primary">
-        <button>
-          <FaTrash />
-        </button>
+        <FaTrash />
       </td>
     </tr>
   );
