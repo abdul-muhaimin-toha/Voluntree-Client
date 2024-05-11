@@ -89,7 +89,7 @@ const AddVolunteerPostPage = () => {
                 className="border border-primary p-4  text-black focus:outline-primary "
               />
               <select
-                defaultValue={"landscape painting"}
+                defaultValue={"Healthcare"}
                 name="category"
                 className="input-select col-span-1 border border-primary bg-right p-4 text-black focus:outline-primary"
               >
