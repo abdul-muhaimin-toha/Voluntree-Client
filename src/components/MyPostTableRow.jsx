@@ -1,8 +1,8 @@
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import axios from "axios";
 import { FaPenToSquare, FaTrash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const MyPostTableRow = ({ post, index }) => {
   const { _id, title, category, deadline, location, volunteers_needed } =
