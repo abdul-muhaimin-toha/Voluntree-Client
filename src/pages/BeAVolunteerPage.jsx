@@ -3,13 +3,15 @@ import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import "react-datepicker/dist/react-datepicker.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useSinglePost from "../hooks/useSinglePost";
+import Loader from "../components/Loader";
 
 const BeAVolunteerPage = () => {
   const { id } = useParams();
-  const { data } = useSinglePost(id);
+  const { data, isPending, refetch } = useSinglePost(id);
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const handleApplyAsVolunteer = (e) => {
     e.preventDefault();
@@ -49,6 +51,8 @@ const BeAVolunteerPage = () => {
         console.log(response.data);
         if (response.data.insertedId) {
           e.target.reset();
+          refetch();
+          navigate("/manage-my-posts");
           toast("Applied successfully", {
             icon: "👏",
             style: {
@@ -71,6 +75,10 @@ const BeAVolunteerPage = () => {
         });
       });
   };
+
+  if (isPending) {
+    return <Loader />;
+  }
 
   return (
     <section>
@@ -96,7 +104,7 @@ const BeAVolunteerPage = () => {
                   name="title"
                   disabled
                   defaultValue={data?.title}
-                  className="border border-primary p-4  text-black focus:outline-primary "
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white "
                 />
               </div>
               <div className="flex flex-col gap-0.5">
@@ -106,7 +114,7 @@ const BeAVolunteerPage = () => {
                   name="category"
                   disabled
                   defaultValue={data?.category}
-                  className="border border-primary p-4  text-black focus:outline-primary"
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white"
                 />
               </div>
               <div className="flex flex-col gap-0.5">
@@ -116,7 +124,7 @@ const BeAVolunteerPage = () => {
                   disabled
                   name="thumbnail_URL"
                   defaultValue={data?.thumbnail_URL}
-                  className="border border-primary p-4  text-black focus:outline-primary"
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white"
                 />
               </div>
               <div className="flex flex-col gap-0.5">
@@ -126,7 +134,7 @@ const BeAVolunteerPage = () => {
                   disabled
                   name="location"
                   defaultValue={data?.location}
-                  className="border border-primary p-4  text-black focus:outline-primary"
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white"
                 />
               </div>
               <div className="flex flex-col gap-0.5">
@@ -138,7 +146,7 @@ const BeAVolunteerPage = () => {
                   disabled
                   name="volunteers_needed"
                   defaultValue={data?.volunteers_needed}
-                  className="border border-primary p-4  text-black focus:outline-primary"
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white"
                 />
               </div>
               <div className="flex flex-col gap-0.5">
@@ -148,18 +156,19 @@ const BeAVolunteerPage = () => {
                   disabled
                   name="deadline"
                   defaultValue={new Date(data?.deadline).toLocaleDateString()}
-                  className="border border-primary p-4  text-black focus:outline-primary"
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white"
                 />
               </div>
               <div className="col-span-1 flex flex-col gap-0.5 md:col-span-2">
                 <label className="font-bold text-primary">Description</label>
                 <textarea
+                  disabled
                   name="description"
                   defaultValue={data?.description}
                   placeholder="Description"
                   cols="2"
                   rows="3"
-                  className="border border-primary p-4  text-black focus:outline-primary"
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white"
                 ></textarea>
               </div>
               <div className="flex flex-col gap-0.5">
@@ -169,7 +178,7 @@ const BeAVolunteerPage = () => {
                   disabled
                   name="organizer_name"
                   defaultValue={data?.organizer_name}
-                  className="border border-primary p-4  text-black focus:outline-primary"
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white"
                 />
               </div>
               <div className="flex flex-col gap-0.5">
@@ -181,7 +190,7 @@ const BeAVolunteerPage = () => {
                   disabled
                   name="organizer_email"
                   defaultValue={data?.organizer_email}
-                  className="border border-primary p-4  text-black focus:outline-primary"
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white"
                 />
               </div>
               <div className="flex flex-col gap-0.5">
@@ -191,7 +200,7 @@ const BeAVolunteerPage = () => {
                   disabled
                   name="applicant_name"
                   defaultValue={user.displayName}
-                  className="border border-primary p-4  text-black focus:outline-primary"
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white"
                 />
               </div>
               <div className="flex flex-col gap-0.5">
@@ -201,7 +210,7 @@ const BeAVolunteerPage = () => {
                   disabled
                   name="applicant_email"
                   defaultValue={user.email}
-                  className="border border-primary p-4  text-black focus:outline-primary"
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white"
                 />
               </div>
               <div className="col-span-1 flex flex-col gap-0.5 md:col-span-2">
@@ -211,7 +220,7 @@ const BeAVolunteerPage = () => {
                   placeholder="Write your suggestion here"
                   cols="2"
                   rows="3"
-                  className="border border-primary p-4  text-black focus:outline-primary"
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white"
                 ></textarea>
               </div>
               <div className="col-span-1 flex flex-col gap-0.5 md:col-span-2">
@@ -220,7 +229,7 @@ const BeAVolunteerPage = () => {
                   type="text"
                   name="status"
                   defaultValue={"Requested"}
-                  className="border border-primary p-4  text-black focus:outline-primary"
+                  className="border border-primary p-4  text-black focus:outline-primary dark:bg-white"
                 />
               </div>
               <input

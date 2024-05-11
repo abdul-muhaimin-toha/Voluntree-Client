@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-const MyRequestPostTableRow = ({ post, index }) => {
+const MyRequestPostTableRow = ({ post, index, refetch }) => {
   const {
     _id,
     title,
@@ -31,6 +31,7 @@ const MyRequestPostTableRow = ({ post, index }) => {
           .then((response) => {
             console.log(response.data);
             if (response.data.deletedCount > 0) {
+              refetch();
               toast("Application canceled successfully", {
                 icon: "👏",
                 style: {
@@ -57,7 +58,7 @@ const MyRequestPostTableRow = ({ post, index }) => {
   };
 
   return (
-    <tr className="dark:text-white ">
+    <tr>
       <th className="text-[#5FA4E6]">{index + 1}</th>
       <td className="capitalize">{title}</td>
       <td className="capitalize">{category}</td>

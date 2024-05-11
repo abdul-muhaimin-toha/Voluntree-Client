@@ -6,7 +6,7 @@ import useSixPost from "../hooks/useSixPost.jsx";
 import Loader from "./Loader.jsx";
 
 const VolunteersNeedNow = () => {
-  const { data, isPending, refetch, isError, error } = useSixPost();
+  const { data, isPending } = useSixPost();
 
   if (isPending) {
     return <Loader />;
@@ -17,7 +17,7 @@ const VolunteersNeedNow = () => {
       <section>
         <div className="mx-auto max-w-screen-2xl px-4">
           <SectionHeading
-            heading="Volunteer Opportunities"
+            heading="Upcomming Volunteer Opportunities"
             subHeading="Explore Exciting Roles and Join a Cause You Believe In"
           />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-16 lg:grid-cols-3">

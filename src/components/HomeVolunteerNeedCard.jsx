@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import thumbnail from "../assets/volunteer-post/post-thumnail-1.jpg";
 
 const HomeVolunteerNeedCard = ({ post }) => {
   const { _id, title, thumbnail_URL, deadline, category } = post || {};

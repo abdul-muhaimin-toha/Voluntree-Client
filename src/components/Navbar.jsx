@@ -148,7 +148,7 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu dropdown-content menu-sm z-[1] mt-8 w-80 space-y-4 rounded-sm  bg-black p-3 text-white shadow dark:bg-white dark:text-black"
+                  className="menu dropdown-content menu-sm z-[1] mt-8 w-80 space-y-4 rounded-sm  bg-black p-4 text-white shadow dark:bg-white dark:text-black"
                 >
                   <Link
                     to="/add-volunteer-post"

@@ -4,7 +4,7 @@ import axios from "axios";
 import { FaPenToSquare, FaTrash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-const MyPostTableRow = ({ post, index }) => {
+const MyPostTableRow = ({ post, index, refetch }) => {
   const { _id, title, category, deadline, location, volunteers_needed } =
     post || {};
 
@@ -25,6 +25,7 @@ const MyPostTableRow = ({ post, index }) => {
           .then((response) => {
             console.log(response.data);
             if (response.data.deletedCount > 0) {
+              refetch();
               toast("Post deleted successfully", {
                 icon: "👏",
                 style: {
@@ -51,21 +52,21 @@ const MyPostTableRow = ({ post, index }) => {
   };
 
   return (
-    <tr className="dark:text-white ">
+    <tr className=" ">
       <th className="text-[#5FA4E6]">{index + 1}</th>
       <td className="capitalize">{title}</td>
       <td className="capitalize">{category}</td>
       <td>{new Date(deadline).toLocaleDateString()}</td>
       <td>{location}</td>
       <td>{volunteers_needed}</td>
-      <td className="text-center text-base text-primary">
+      <td className="text-base text-primary">
         <button>
           <Link to={`/update-my-post/${_id}`}>
             <FaPenToSquare className="m-2" />
           </Link>
         </button>
       </td>
-      <td className="text-center text-base text-primary">
+      <td className=" text-base text-primary">
         <button onClick={handleDeletePost}>
           <FaTrash className="m-2" />
         </button>

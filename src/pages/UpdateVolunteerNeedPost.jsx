@@ -7,11 +7,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import useSinglePost from "../hooks/useSinglePost";
 import { useParams } from "react-router-dom";
+import Loader from "../components/Loader";
 
 const UpdateVolunteerNeedPost = () => {
   const { user } = useAuth();
   const { id } = useParams();
-  const { data } = useSinglePost(id);
+  const { data, isPending, refetch } = useSinglePost(id);
   const [startDate, setStartDate] = useState(data?.deadline);
 
   const handleUpdatePost = (e) => {
@@ -42,6 +43,7 @@ const UpdateVolunteerNeedPost = () => {
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           e.target.reset();
+          refetch();
           toast("Post updated successfully", {
             icon: "👏",
             style: {
@@ -64,6 +66,10 @@ const UpdateVolunteerNeedPost = () => {
         });
       });
   };
+
+  if (isPending) {
+    return <Loader />;
+  }
 
   return (
     <section>

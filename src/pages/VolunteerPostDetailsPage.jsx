@@ -1,16 +1,24 @@
 import useSinglePost from "../hooks/useSinglePost";
 import { Link, useParams } from "react-router-dom";
-import { FaRegStar, FaDollarSign } from "react-icons/fa6";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
+import Loader from "../components/Loader";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const VolunteerPostDetailsPage = () => {
   const { id } = useParams();
-  const { data } = useSinglePost(id);
+  const { data, isPending } = useSinglePost(id);
 
-  console.log(data);
+  if (isPending) {
+    return <Loader />;
+  }
 
   return (
     <section>
+      <HelmetProvider>
+        <Helmet>
+          <title>Voluntree - Volunteer Post Details</title>
+        </Helmet>
+      </HelmetProvider>
       <div className="mx-auto max-w-screen-2xl px-4">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-center py-20">
           <h2 className="mx-auto mb-12  max-w-4xl text-center text-4xl font-semibold uppercase text-black md:text-5xl dark:text-white">
@@ -23,7 +31,7 @@ const VolunteerPostDetailsPage = () => {
               className="col-span-1 w-full border-spacing-4 rounded-lg object-cover shadow-lg ring-4 ring-primary"
             />
             <div className="col-span-1 flex rounded-lg bg-cover shadow-lg lg:col-span-2">
-              <div className="flex grow flex-col gap-6 rounded-lg bg-black bg-opacity-90 p-4 md:gap-10 lg:p-8">
+              <div className="flex grow flex-col gap-6 rounded-lg bg-[#000]  p-4 md:gap-10 lg:p-8">
                 <div className="flex flex-col items-start justify-center gap-3">
                   <div className="flex w-full flex-col flex-wrap items-start justify-between gap-3">
                     <h2 className="text-xl font-bold uppercase text-white">
@@ -43,24 +51,24 @@ const VolunteerPostDetailsPage = () => {
                       {data?.description}
                     </p>
                     <div className="my-3 flex flex-wrap gap-4">
-                      <p className=" rounded-sm bg-[#D2AB67] px-2 py-1 text-xs capitalize italic text-white dark:bg-[#119464]">
+                      <p className=" rounded-sm bg-white px-2 py-1 text-xs capitalize italic text-black">
                         Volunteers Needed: {data?.volunteers_needed}
                       </p>
-                      <p className=" rounded-sm bg-[#D2AB67] px-2 py-1 text-xs capitalize italic text-white dark:bg-[#119464]">
+                      <p className=" rounded-sm bg-white px-2 py-1 text-xs capitalize italic text-black ">
                         Deadline:{" "}
                         {new Date(data?.deadline).toLocaleDateString()}
                       </p>
-                      <p className=" rounded-sm bg-[#665DCD] px-2 py-1 text-xs capitalize italic text-white dark:bg-[#119464]">
+                      <p className=" rounded-sm bg-primary px-2 py-1 text-xs capitalize italic text-white ">
                         Organizer Name: {data?.organizer_name}
                       </p>
-                      <p className=" rounded-sm bg-primary px-2 py-1 text-xs capitalize italic text-white dark:bg-[#417763]">
+                      <p className=" rounded-sm bg-primary px-2 py-1 text-xs capitalize italic text-white ">
                         Organizer Email: {data?.organizer_email}
                       </p>
                     </div>
                   </div>
                   <Link
                     to={`/be-a-volunteer/${id}`}
-                    className="w-full bg-primary p-3 text-center"
+                    className="w-full bg-primary p-3 text-center font-bold uppercase text-white"
                   >
                     Be a Volunteer
                   </Link>

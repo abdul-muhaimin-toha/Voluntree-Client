@@ -58,10 +58,10 @@ const Hero = () => {
             your time to causes you care about. Join us now!
           </p>
           <Link
-            to="/add-art"
+            to="/add-volunteer-post"
             className=" self-center rounded-md bg-white px-5 py-3 font-semibold uppercase text-black transition duration-150 hover:text-primary"
           >
-            Post Your Art
+            Looking For Volunteers?
           </Link>
         </div>
       </div>
