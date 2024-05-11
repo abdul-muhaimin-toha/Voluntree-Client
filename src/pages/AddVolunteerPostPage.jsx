@@ -82,74 +82,101 @@ const AddVolunteerPostPage = () => {
               onSubmit={handleAddPost}
               className="grid grid-cols-1 gap-3 md:grid-cols-2"
             >
-              <input
-                type="text"
-                name="title"
-                placeholder="Post title"
-                className="border border-primary p-4  text-black focus:outline-primary "
-              />
-              <select
-                defaultValue={"Healthcare"}
-                name="category"
-                className="input-select col-span-1 border border-primary bg-right p-4 text-black focus:outline-primary"
-              >
-                <option value="Healthcare" className="input-selected">
-                  Choose your category
-                </option>
-                <option value="Healthcare">Healthcare</option>
-                <option value="Education">Education</option>
-                <option value="Social service">Social service</option>
-                <option value="Animal welfare">Animal welfare</option>
-              </select>
-              <textarea
-                name="description"
-                placeholder="Short Description"
-                cols="2"
-                rows="3"
-                className="border border-primary p-4 text-black focus:outline-primary md:col-span-2 "
-              ></textarea>
-              <input
-                type="text"
-                name="location"
-                placeholder="Location"
-                className="border border-primary p-4 text-black focus:outline-primary "
-              />
-              <input
-                type="number"
-                name="number_of_volunteer_needed"
-                placeholder="Number of volunteer needed"
-                className="border border-primary p-4 text-black focus:outline-primary "
-              />
-              <div className="col-span-1 flex">
-                <DatePicker
-                  selected={startDate}
-                  onChange={(date) => setStartDate(date)}
-                  className="w-full border border-primary p-4 text-black focus:outline-primary"
+              <div className="flex flex-col gap-0.5">
+                <label className="font-bold text-primary">Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="Post title"
+                  className="border border-primary p-4  text-black focus:outline-primary "
                 />
               </div>
-
-              <input
-                type="text"
-                name="thumbnail_URL"
-                placeholder="Thumbnail URL"
-                className="border border-primary p-4 text-black focus:outline-primary"
-              />
-              <input
-                type="text"
-                disabled
-                defaultValue={user.displayName}
-                name="organizer_name"
-                placeholder="Organizer name"
-                className="border border-primary bg-white p-4 text-black focus:outline-primary "
-              />
-              <input
-                type="text"
-                disabled
-                defaultValue={user.email}
-                name="organizer_email"
-                placeholder="Organizer email"
-                className="border border-primary bg-white p-4 text-black  focus:outline-primary "
-              />
+              <div className="flex flex-col gap-0.5">
+                <label className="font-bold text-primary">Category</label>
+                <select
+                  defaultValue={"Healthcare"}
+                  name="category"
+                  className="input-select col-span-1 border border-primary bg-right p-4 text-black focus:outline-primary"
+                >
+                  <option value="Healthcare">Healthcare</option>
+                  <option value="Education">Education</option>
+                  <option value="Social service">Social service</option>
+                  <option value="Animal welfare">Animal welfare</option>
+                </select>
+              </div>
+              <div className="col-span-1 flex flex-col gap-0.5 md:col-span-2">
+                <label className="font-bold text-primary">Description</label>
+                <textarea
+                  name="description"
+                  placeholder="Short Description"
+                  cols="2"
+                  rows="3"
+                  className="border border-primary p-4 text-black focus:outline-primary md:col-span-2 "
+                ></textarea>
+              </div>
+              <div className="flex flex-col gap-0.5">
+                <label className="font-bold text-primary">Location</label>
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Location"
+                  className="border border-primary p-4 text-black focus:outline-primary "
+                />
+              </div>
+              <div className="flex flex-col gap-0.5">
+                <label className="font-bold text-primary">
+                  Number of Volunteer needed
+                </label>
+                <input
+                  type="number"
+                  name="number_of_volunteer_needed"
+                  placeholder="Number of volunteer needed"
+                  className="border border-primary p-4 text-black focus:outline-primary "
+                />
+              </div>
+              <div className="flex flex-col gap-0.5">
+                <label className="font-bold text-primary">Deadline</label>
+                <div className="col-span-1 flex">
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                    className="w-full border border-primary p-4 text-black focus:outline-primary"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col gap-0.5">
+                <label className="font-bold text-primary">Thumbnail URL</label>
+                <input
+                  type="text"
+                  name="thumbnail_URL"
+                  placeholder="Thumbnail URL"
+                  className="border border-primary p-4 text-black focus:outline-primary"
+                />
+              </div>
+              <div className="flex flex-col gap-0.5">
+                <label className="font-bold text-primary">Organizer Name</label>
+                <input
+                  type="text"
+                  disabled
+                  defaultValue={user.displayName}
+                  name="organizer_name"
+                  placeholder="Organizer name"
+                  className="border border-primary bg-white p-4 text-black focus:outline-primary "
+                />
+              </div>
+              <div className="flex flex-col gap-0.5">
+                <label className="font-bold text-primary">
+                  Organizer Email
+                </label>
+                <input
+                  type="text"
+                  disabled
+                  defaultValue={user.email}
+                  name="organizer_email"
+                  placeholder="Organizer email"
+                  className="border border-primary bg-white p-4 text-black  focus:outline-primary "
+                />
+              </div>
 
               <input
                 type="submit"
