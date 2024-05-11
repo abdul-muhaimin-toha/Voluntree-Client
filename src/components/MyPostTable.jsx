@@ -13,7 +13,9 @@ const MyPostTable = () => {
   if (data?.length < 1) {
     return (
       <div className="mt-10 flex flex-col items-center justify-center gap-6">
-        <p className="text-xl font-bold">You haven't posted anything yet!</p>
+        <p className="text-center text-xl font-bold">
+          You haven't posted anything yet!
+        </p>
         <Link
           to="/add-volunteer-post"
           className="text-bold rounded-md bg-primary px-4 py-2 font-bold uppercase text-white"

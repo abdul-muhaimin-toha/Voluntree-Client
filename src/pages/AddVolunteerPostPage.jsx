@@ -34,8 +34,6 @@ const AddVolunteerPostPage = () => {
       organizer_email,
     };
 
-    console.log(newAddedPost);
-
     axios
       .post("http://localhost:3000/volunteers", newAddedPost)
       .then(function (response) {

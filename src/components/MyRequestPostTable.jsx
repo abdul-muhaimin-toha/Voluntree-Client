@@ -13,7 +13,9 @@ const MyRequestPostTable = () => {
   if (data?.length < 1) {
     return (
       <div className="mt-10 flex flex-col items-center justify-center gap-6">
-        <p className="text-xl font-bold">You haven't applied anywhere yet!</p>
+        <p className="text-center text-xl font-bold">
+          You haven't applied anywhere yet!
+        </p>
         <Link className="text-bold rounded-md bg-primary px-4 py-2 font-bold uppercase text-white">
           Start Applying Now!
         </Link>

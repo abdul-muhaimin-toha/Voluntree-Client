@@ -12,6 +12,7 @@ import {
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -20,11 +21,23 @@ const AuthContextProvider = ({ children }) => {
   const githubProvider = new GithubAuthProvider();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (signedInUser) => {
+      const userEmail = signedInUser?.email || user?.email;
+      const loggedUser = { email: userEmail };
+      if (signedInUser) {
+        setUser(signedInUser);
+        axios
+          .post("http://localhost:3000/jwt", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => console.log(res.data));
       } else {
         setUser(null);
+        axios
+          .post("http://localhost:3000/logout", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => console.log(res.data));
       }
       setIsLoading(false);
     });

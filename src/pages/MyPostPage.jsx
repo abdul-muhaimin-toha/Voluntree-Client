@@ -20,8 +20,16 @@ const MyPostPage = () => {
             </h2>
             <Tabs className=" mt-16">
               <TabList className="border-b border-black text-center text-lg font-medium ">
-                <Tab>My Posts</Tab>
-                <Tab>My Requested Posts</Tab>
+                <Tab>
+                  <span className="text-xs md:text-lg">My Posts</span>
+                </Tab>
+
+                <Tab>
+                  <span className="text-xs md:text-lg">
+                    {" "}
+                    My Requested Posts
+                  </span>
+                </Tab>
               </TabList>
 
               <TabPanel className="mt-6">
