@@ -1,10 +1,11 @@
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 import { FaPenToSquare, FaTrash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const MyPostTableRow = ({ post, index, refetch }) => {
+  const axiosSecure = useAxiosSecure();
   const { _id, title, category, deadline, location, volunteers_needed } =
     post || {};
 
@@ -20,8 +21,8 @@ const MyPostTableRow = ({ post, index, refetch }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`http://localhost:3000/volunteers/${_id}`)
+        axiosSecure
+          .delete(`/volunteers/${_id}`)
           .then((response) => {
             console.log(response.data);
             if (response.data.deletedCount > 0) {

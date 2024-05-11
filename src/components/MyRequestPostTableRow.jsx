@@ -1,9 +1,10 @@
 import { MdCancel } from "react-icons/md";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyRequestPostTableRow = ({ post, index, refetch }) => {
+  const axiosSecure = useAxiosSecure();
   const {
     _id,
     title,
@@ -26,8 +27,8 @@ const MyRequestPostTableRow = ({ post, index, refetch }) => {
       confirmButtonText: "Yes, cancel it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`http://localhost:3000/my-applied-posts/${_id}`)
+        axiosSecure
+          .delete(`/my-applied-posts/${_id}`)
           .then((response) => {
             console.log(response.data);
             if (response.data.deletedCount > 0) {

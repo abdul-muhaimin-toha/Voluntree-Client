@@ -61,7 +61,7 @@ const Hero = () => {
             to="/add-volunteer-post"
             className=" self-center rounded-md bg-white px-5 py-3 font-semibold uppercase text-black transition duration-150 hover:text-primary"
           >
-            Looking For Volunteers?
+            Get Volunteers
           </Link>
         </div>
       </div>

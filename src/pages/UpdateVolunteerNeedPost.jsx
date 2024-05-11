@@ -1,4 +1,4 @@
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import { Helmet, HelmetProvider } from "react-helmet-async";
@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 
 const UpdateVolunteerNeedPost = () => {
+  const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const { id } = useParams();
   const { data, isPending, refetch } = useSinglePost(id);
@@ -38,8 +39,8 @@ const UpdateVolunteerNeedPost = () => {
       organizer_email,
     };
 
-    axios
-      .put(`http://localhost:3000/volunteers/${id}`, updatedInfo)
+    axiosSecure
+      .put(`/volunteers/${id}`, updatedInfo)
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           e.target.reset();

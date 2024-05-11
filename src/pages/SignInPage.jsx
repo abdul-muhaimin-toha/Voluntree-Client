@@ -1,6 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEyeSlash, FaEye, FaGoogle, FaGithub } from "react-icons/fa";
-
 import useAuth from "../hooks/useAuth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";

@@ -1,13 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const useSixPost = () => {
+  const axiosSecure = useAxiosSecure();
   const { data, isPending, refetch, isError, error } = useQuery({
     queryKey: ["six-post"],
     queryFn: async () => {
-      const response = await axios.get(
-        "http://localhost:3000/volunteers-upcoming",
-      );
+      const response = await axiosSecure.get("/volunteers-upcoming");
 
       return response.data;
     },

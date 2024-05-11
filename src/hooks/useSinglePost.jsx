@@ -1,13 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const useSinglePost = (id) => {
+  const axiosSecure = useAxiosSecure();
   const { data, isPending, refetch, error, isError } = useQuery({
     queryKey: ["single-post", id],
     queryFn: async () => {
-      const response = await axios.get(
-        `http://localhost:3000/volunteers/${id}`,
-      );
+      const response = await axiosSecure.get(`/volunteers/${id}`);
 
       return response.data;
     },

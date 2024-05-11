@@ -1,13 +1,13 @@
-import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AddVolunteerPostPage = () => {
+  const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [startDate, setStartDate] = useState(new Date());
 
@@ -34,8 +34,8 @@ const AddVolunteerPostPage = () => {
       organizer_email,
     };
 
-    axios
-      .post("http://localhost:3000/volunteers", newAddedPost)
+    axiosSecure
+      .post("/volunteers", newAddedPost)
       .then(function (response) {
         console.log(response.data);
         if (response.data.insertedId) {

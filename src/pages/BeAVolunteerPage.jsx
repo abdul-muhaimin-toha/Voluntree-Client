@@ -1,4 +1,4 @@
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import { Helmet, HelmetProvider } from "react-helmet-async";
@@ -8,6 +8,7 @@ import useSinglePost from "../hooks/useSinglePost";
 import Loader from "../components/Loader";
 
 const BeAVolunteerPage = () => {
+  const axiosSecure = useAxiosSecure();
   const { id } = useParams();
   const { data, isPending, refetch } = useSinglePost(id);
   const { user } = useAuth();
@@ -45,8 +46,8 @@ const BeAVolunteerPage = () => {
       status,
     };
 
-    axios
-      .post("http://localhost:3000/applied-as-a-volunteer", newApplyData)
+    axiosSecure
+      .post("/applied-as-a-volunteer", newApplyData)
       .then(function (response) {
         console.log(response.data);
         if (response.data.insertedId) {
