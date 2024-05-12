@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import generateRandomPassword from "../utils/generateRandomPass";
 
 const RegistrationPage = () => {
   const [isPassVisible, setIsPassVisible] = useState(false);
@@ -14,12 +15,19 @@ const RegistrationPage = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
     reset,
   } = useForm();
 
   const { setIsLoading, logout, createNewUser, googleLogin, githubLogin } =
     useAuth();
+
+  const handleRandomPass = () => {
+    setIsPassVisible(true);
+    const randomPass = generateRandomPassword();
+    setValue("password", randomPass);
+  };
 
   const handleFormSubmit = (data) => {
     const { name, email, photoURL, password } = data;
@@ -193,9 +201,9 @@ const RegistrationPage = () => {
                       message: "You must fill password field",
                     },
                     minLength: {
-                      value: 6,
+                      value: 8,
                       message:
-                        "Your password should be atleast 6 characters long",
+                        "Your password should be atleast 8 characters long",
                     },
                     pattern: {
                       value: /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
@@ -215,11 +223,18 @@ const RegistrationPage = () => {
                   )}
                 </p>
               </div>
+
               {errors.password && (
                 <p className="text-red-900 px-1 pt-2 text-sm dark:text-white ">
                   {errors.password.message}
                 </p>
               )}
+              <p
+                onClick={handleRandomPass}
+                className="mt-4 flex w-6/12 cursor-pointer items-center justify-center rounded-full border-2 border-primary bg-transparent p-1.5 text-xs text-primary md:w-3/12 md:text-sm dark:text-white"
+              >
+                Generate Password
+              </p>
               <input
                 type="submit"
                 value="Sign Up"
