@@ -15,6 +15,7 @@ import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 import MyPostPage from "./pages/MyPostPage";
 import UpdateVolunteerNeedPost from "./pages/UpdateVolunteerNeedPost";
 import ErrorPage from "./pages/ErrorPage";
+import AllVolunteerOpportunities from "./pages/AllVolunteerOpportunities";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,6 +35,14 @@ export const router = createBrowserRouter(
           <LoggedInRoute>
             <RegistrationPage />
           </LoggedInRoute>
+        }
+      />
+      <Route
+        path="volunteer-opportunities"
+        element={
+          <PrivateRoute>
+            <AllVolunteerOpportunities />
+          </PrivateRoute>
         }
       />
       <Route

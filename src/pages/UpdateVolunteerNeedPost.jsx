@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useSinglePost from "../hooks/useSinglePost";
 import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
@@ -14,7 +14,13 @@ const UpdateVolunteerNeedPost = () => {
   const { user } = useAuth();
   const { id } = useParams();
   const { data, isPending, refetch } = useSinglePost(id);
-  const [startDate, setStartDate] = useState(data?.deadline);
+  const [startDate, setStartDate] = useState(new Date());
+
+  useEffect(() => {
+    if (data) {
+      setStartDate(data.deadline);
+    }
+  }, [data]);
 
   const handleUpdatePost = (e) => {
     e.preventDefault();
@@ -171,7 +177,7 @@ const UpdateVolunteerNeedPost = () => {
                 <input
                   type="text"
                   disabled
-                  defaultValue={user.displayName}
+                  defaultValue={data?.organizer_name}
                   name="organizer_name"
                   placeholder="Organizer name"
                   className="border border-primary bg-white p-4 text-black focus:outline-primary "
@@ -184,7 +190,7 @@ const UpdateVolunteerNeedPost = () => {
                 <input
                   type="text"
                   disabled
-                  defaultValue={user.email}
+                  defaultValue={data?.organizer_email}
                   name="organizer_email"
                   placeholder="Organizer email"
                   className="border border-primary bg-white p-4 text-black  focus:outline-primary "

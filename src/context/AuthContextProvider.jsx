@@ -42,7 +42,7 @@ const AuthContextProvider = ({ children }) => {
       setIsLoading(false);
     });
     return () => unsubscribe();
-  }, []);
+  }, [user?.email]);
 
   const createNewUser = (email, password) => {
     setIsLoading(true);
