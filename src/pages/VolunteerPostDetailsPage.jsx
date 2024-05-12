@@ -1,12 +1,44 @@
 import useSinglePost from "../hooks/useSinglePost";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import Loader from "../components/Loader";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const VolunteerPostDetailsPage = () => {
   const { id } = useParams();
   const { data, isPending } = useSinglePost(id);
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const handleBeAVolunteer = () => {
+    if (data.organizer_email === user.email) {
+      toast("Can't apply to your own need post", {
+        icon: "❌",
+        style: {
+          borderRadius: "10px",
+          background: "#4262FF",
+          color: "#fff",
+        },
+      });
+      return;
+    }
+
+    if (!(data.volunteers_needed > 0)) {
+      toast("This organizer dont need any volunteer anymore", {
+        icon: "❌",
+        style: {
+          borderRadius: "10px",
+          background: "#4262FF",
+          color: "#fff",
+        },
+      });
+      return;
+    }
+
+    navigate(`/be-a-volunteer/${id}`);
+  };
 
   if (isPending) {
     return <Loader />;
@@ -66,12 +98,12 @@ const VolunteerPostDetailsPage = () => {
                       </p>
                     </div>
                   </div>
-                  <Link
-                    to={`/be-a-volunteer/${id}`}
+                  <button
+                    onClick={handleBeAVolunteer}
                     className="w-full bg-primary p-3 text-center font-bold uppercase text-white"
                   >
                     Be a Volunteer
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>

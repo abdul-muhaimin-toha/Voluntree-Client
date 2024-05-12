@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 
-const Pagination = ({ currentPage, setCurrentPage, postPerPage }) => {
+const Pagination = ({ currentPage, setCurrentPage, postPerPage, search }) => {
   const axiosSecure = useAxiosSecure();
   const [totalPost, setTotalPost] = useState(0);
 
@@ -10,13 +10,13 @@ const Pagination = ({ currentPage, setCurrentPage, postPerPage }) => {
 
   useEffect(() => {
     axiosSecure
-      .get("/number-of-post")
+      .get(`/number-of-post?searchQuery=${search}`)
       .then((res) => setTotalPost(res.data.totalPost))
       .catch((err) => console.log(err));
-  }, []);
+  }, [search]);
 
   const handleCurrentPage = (e) => {
-    setCurrentPage(+e.target.textContent);
+    setCurrentPage(+e.target.textContent - 1);
   };
 
   const HandlePrevButton = () => {
@@ -58,7 +58,7 @@ const Pagination = ({ currentPage, setCurrentPage, postPerPage }) => {
             onClick={handleCurrentPage}
             className={`inline-flex h-8 w-8 items-center justify-center rounded border text-sm font-semibold shadow-md hover:bg-primary hover:text-white dark:border-0 dark:bg-white ${currentPage === page ? "bg-primary text-white" : ""} `}
           >
-            {page}
+            {page + 1}
           </button>
         ))}
         <button

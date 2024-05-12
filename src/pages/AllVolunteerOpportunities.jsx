@@ -8,11 +8,17 @@ import AllPostPageCard from "../components/AllPostPageCard";
 import { FaTableList, FaTableCellsLarge } from "react-icons/fa6";
 
 const AllVolunteerOpportunities = () => {
+  const [search, setSearch] = useState("");
   const [viewMode, setViewMode] = useState("card");
-
   const [currentPage, setCurrentPage] = useState(0);
   const postPerPage = 6;
-  const { data, isPending } = useAllPosts(currentPage, postPerPage);
+  const { data, isPending } = useAllPosts(currentPage, postPerPage, search);
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    const searchQuery = e.target.searchQuery.value;
+    setSearch(searchQuery);
+  };
 
   if (isPending) {
     return <Loader />;
@@ -30,21 +36,36 @@ const AllVolunteerOpportunities = () => {
           <h2 className="mx-auto  max-w-xl text-4xl  font-black uppercase text-primary lg:text-5xl">
             All Volunteer Opportunities
           </h2>
-          <div className="my-8 flex justify-center gap-4 text-white  md:justify-end">
-            <button
-              onClick={() => setViewMode("card")}
-              className="flex items-center gap-3 rounded bg-primary p-2"
-            >
-              <FaTableCellsLarge className="text-xl" />
-              <span className="text-sm">Card View</span>
-            </button>
-            <button
-              onClick={() => setViewMode("table")}
-              className="flex items-center gap-3 rounded bg-primary p-2"
-            >
-              <FaTableList className="text-xl" />
-              <span className="text-sm">Table View</span>
-            </button>
+          <div className="my-8 flex flex-col-reverse items-center justify-center gap-4 md:flex-row md:justify-end">
+            <form onSubmit={handleSearchSubmit} className="flex gap-2">
+              <input
+                type="text"
+                defaultValue={search}
+                name="searchQuery"
+                className="border border-primary p-1  text-black focus:outline-primary "
+              />
+              <input
+                type="submit"
+                value="Search"
+                className="cursor-pointer rounded bg-primary px-3 py-2 font-semibold text-white transition-all duration-150"
+              />
+            </form>
+            <div className=" flex  gap-6 text-white md:gap-4 ">
+              <button
+                onClick={() => setViewMode("card")}
+                className="flex items-center gap-3 rounded bg-primary p-2"
+              >
+                <FaTableCellsLarge className="text-xl" />
+                <span className="text-sm">Card View</span>
+              </button>
+              <button
+                onClick={() => setViewMode("table")}
+                className="flex items-center gap-3 rounded bg-primary p-2"
+              >
+                <FaTableList className="text-xl" />
+                <span className="text-sm">Table View</span>
+              </button>
+            </div>
           </div>
         </div>
         {viewMode === "card" ? (
@@ -62,6 +83,7 @@ const AllVolunteerOpportunities = () => {
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             postPerPage={postPerPage}
+            search={search}
           />
         </div>
       </div>
