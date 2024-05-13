@@ -8,7 +8,7 @@ const data = [
     "volunteers_needed": 5,
     "deadline": "2024-06-15T00:00:00",
     "organizer_name": "Abdul Muhaimin Toha",
-    "organizer_email": "abdulmuhaiminToha.business@gmail.com"
+    "organizer_email": "abdulmuhaimintoha.business@gmail.com"
   },
   {
     "thumbnail_URL": "https://i.ibb.co/Z8WPVkR/post-thumnail-2.jpg",
@@ -41,7 +41,7 @@ const data = [
     "volunteers_needed": 8,
     "deadline": "2024-06-20T00:00:00",
     "organizer_name": "Abdul Muhaimin Toha",
-    "organizer_email": "abdulmuhaiminToha.business@gmail.com"
+    "organizer_email": "abdulmuhaimintoha.business@gmail.com"
   },
   {
     "thumbnail_URL": "https://i.ibb.co/jk4gG04/post-thumnail-5.jpg",
@@ -74,7 +74,7 @@ const data = [
     "volunteers_needed": 12,
     "deadline": "2024-06-25T00:00:00",
     "organizer_name": "Abdul Muhaimin Toha",
-    "organizer_email": "abdulmuhaiminToha.business@gmail.com"
+    "organizer_email": "abdulmuhaimintoha.business@gmail.com"
   },
   {
     "thumbnail_URL": "https://i.ibb.co/kgng4fX/post-thumnail-8.jpg",
@@ -107,6 +107,6 @@ const data = [
     "volunteers_needed": 30,
     "deadline": "2024-07-15T00:00:00",
     "organizer_name": "Abdul Muhaimin Toha",
-    "organizer_email": "abdulmuhaiminToha.business@gmail.com"
+    "organizer_email": "abdulmuhaimintoha.business@gmail.com"
   }
 ]

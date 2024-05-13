@@ -12,9 +12,9 @@ const ErrorPage = () => {
         </Helmet>
       </HelmetProvider>
       <div className="mx-auto max-w-screen-2xl px-2">
-        <div className="flex h-screen flex-col items-center justify-center">
+        <div className="flex h-screen flex-col items-center justify-center bg-white">
           <img src={errorImage} alt="Error image" className="max-w-96" />
-          <p className="bg-gradient-bg dark:bg-gradient-bg-2 rounded-sm px-4 py-2 text-xl font-black italic text-black dark:text-white">
+          <p className="rounded-sm px-4 py-2 text-xl font-black italic text-black dark:text-white">
             Page Not Found!
           </p>
           <Link

@@ -4,9 +4,14 @@ import SectionHeading from "./SectionHeading";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import useSixPost from "../hooks/useSixPost.jsx";
 import Loader from "./Loader.jsx";
+import ErrorElement from "./ErrorElement.jsx";
 
 const VolunteersNeedNow = () => {
-  const { data, isPending } = useSixPost();
+  const { data, isPending, isError } = useSixPost();
+
+  if (isError) {
+    return <ErrorElement />;
+  }
 
   if (isPending) {
     return <Loader />;
@@ -27,7 +32,7 @@ const VolunteersNeedNow = () => {
           </div>
           <div className="mt-10 flex justify-center">
             <Link
-              to="/all-arts"
+              to="/volunteer-opportunities"
               className=" flex items-center justify-center gap-4 rounded-md px-5 py-3 font-semibold uppercase text-black transition duration-150 hover:text-primary dark:text-white"
             >
               <p>Explore More</p>

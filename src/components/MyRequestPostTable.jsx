@@ -2,9 +2,14 @@ import { Link } from "react-router-dom";
 import useMyAppliedPost from "../hooks/useMyApplirdPost";
 import MyRequestPostTableRow from "./MyRequestPostTableRow";
 import Loader from "./Loader";
+import ErrorElement from "./ErrorElement";
 
 const MyRequestPostTable = () => {
-  const { data, isPending, refetch } = useMyAppliedPost();
+  const { data, isPending, refetch, isError } = useMyAppliedPost();
+
+  if (isError) {
+    return <ErrorElement />;
+  }
 
   if (isPending) {
     return <Loader />;
@@ -16,7 +21,10 @@ const MyRequestPostTable = () => {
         <p className="text-center text-xl font-bold">
           You haven't applied anywhere yet!
         </p>
-        <Link className="text-bold rounded-md bg-primary px-4 py-2 font-bold uppercase text-white">
+        <Link
+          to="/volunteer-opportunities"
+          className="text-bold rounded-md bg-primary px-4 py-2 font-bold uppercase text-white"
+        >
           Start Applying Now!
         </Link>
       </div>

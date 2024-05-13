@@ -2,9 +2,14 @@ import useMyPosts from "../hooks/useMyPosts";
 import MyPostTableRow from "../components/MyPostTableRow";
 import { Link } from "react-router-dom";
 import Loader from "./Loader";
+import ErrorElement from "./ErrorElement";
 
 const MyPostTable = () => {
-  const { data, isPending, refetch } = useMyPosts();
+  const { data, isPending, refetch, isError } = useMyPosts();
+
+  if (isError) {
+    return <ErrorElement />;
+  }
 
   if (isPending) {
     return <Loader />;

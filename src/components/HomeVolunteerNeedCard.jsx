@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import thumbnailDefault from "../assets/image-not-available.webp";
 
 const HomeVolunteerNeedCard = ({ post }) => {
   const { _id, title, thumbnail_URL, deadline, category } = post || {};
@@ -6,13 +7,13 @@ const HomeVolunteerNeedCard = ({ post }) => {
   return (
     <div className="overflow-hidden rounded-md bg-[#fff] shadow-xl dark:bg-[#000]">
       <img
-        src={thumbnail_URL}
+        src={thumbnail_URL || thumbnailDefault}
         alt=""
         className="h-72 w-full rounded-t-md object-cover"
       />
       <div className=" flex flex-col p-4 md:p-6 ">
         <h4 className="min-h-16 text-2xl  font-black text-black dark:text-white">
-          {title}
+          {title || "Unknown"}
         </h4>
         <div className="mt-4 flex flex-wrap items-center gap-3 text-xs">
           <p className="self-start rounded-sm bg-primary p-1.5 capitalize  text-white">

@@ -6,11 +6,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate, useParams } from "react-router-dom";
 import useSinglePost from "../hooks/useSinglePost";
 import Loader from "../components/Loader";
+import ErrorElement from "../components/ErrorElement";
 
 const BeAVolunteerPage = () => {
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
-  const { data, isPending, refetch } = useSinglePost(id);
+  const { data, isPending, refetch, isError } = useSinglePost(id);
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -77,6 +78,10 @@ const BeAVolunteerPage = () => {
       });
   };
 
+  if (isError) {
+    return <ErrorElement />;
+  }
+
   if (isPending) {
     return <Loader />;
   }
@@ -91,7 +96,7 @@ const BeAVolunteerPage = () => {
       <div className="mx-auto max-w-screen-2xl px-4">
         <div className="flex items-center justify-center py-10">
           <div className="w-full max-w-screen-md rounded p-6 px-2 shadow-2xl md:p-10">
-            <h2 className="mx-auto mb-12 mt-6 max-w-2xl text-center text-4xl font-black uppercase text-primary  md:text-5xl">
+            <h2 className="mx-auto mb-12 mt-6 max-w-2xl text-center text-4xl font-black uppercase text-primary  md:text-5xl dark:text-white">
               Apply for {data?.title}
             </h2>
             <form

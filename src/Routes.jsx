@@ -39,11 +39,7 @@ export const router = createBrowserRouter(
       />
       <Route
         path="volunteer-opportunities"
-        element={
-          <PrivateRoute>
-            <AllVolunteerOpportunities />
-          </PrivateRoute>
-        }
+        element={<AllVolunteerOpportunities />}
       />
       <Route
         path="add-volunteer-post"

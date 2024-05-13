@@ -8,12 +8,13 @@ import { useEffect, useState } from "react";
 import useSinglePost from "../hooks/useSinglePost";
 import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
+import ErrorElement from "../components/ErrorElement";
 
 const UpdateVolunteerNeedPost = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const { id } = useParams();
-  const { data, isPending, refetch } = useSinglePost(id);
+  const { data, isPending, refetch, isError } = useSinglePost(id);
   const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
@@ -73,6 +74,10 @@ const UpdateVolunteerNeedPost = () => {
         });
       });
   };
+
+  if (isError) {
+    return <ErrorElement />;
+  }
 
   if (isPending) {
     return <Loader />;

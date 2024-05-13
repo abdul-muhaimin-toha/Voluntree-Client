@@ -116,7 +116,7 @@ const SignInPage = () => {
       <div className="mx-auto max-w-screen-2xl px-4">
         <div className="flex items-center justify-center py-10">
           <div className="w-full max-w-screen-md rounded p-6 px-2 shadow-2xl md:p-10">
-            <h2 className="mx-auto mb-12 mt-6 max-w-2xl text-center text-4xl font-black uppercase text-primary  md:text-5xl">
+            <h2 className="mx-auto mb-12 mt-6 max-w-2xl text-center text-4xl font-black uppercase text-primary md:text-5xl  dark:text-white">
               Sign in now!
             </h2>
             <form

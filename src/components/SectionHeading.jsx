@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const SectionHeading = ({ heading, subHeading }) => {
   return (
-    <div className="py-20 text-center text-primary md:pt-32">
+    <div className="py-20 text-center text-primary md:pt-32 dark:text-white">
       <h2 className="mx-auto max-w-xl text-4xl font-black uppercase lg:text-5xl">
         {heading}
       </h2>

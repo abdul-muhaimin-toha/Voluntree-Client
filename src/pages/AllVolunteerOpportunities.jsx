@@ -6,19 +6,28 @@ import { useState } from "react";
 import AllOportunityTable from "../components/AllOportunityTable";
 import AllPostPageCard from "../components/AllPostPageCard";
 import { FaTableList, FaTableCellsLarge } from "react-icons/fa6";
+import ErrorElement from "../components/ErrorElement";
 
 const AllVolunteerOpportunities = () => {
   const [search, setSearch] = useState("");
   const [viewMode, setViewMode] = useState("card");
   const [currentPage, setCurrentPage] = useState(0);
   const postPerPage = 6;
-  const { data, isPending } = useAllPosts(currentPage, postPerPage, search);
+  const { data, isPending, isError } = useAllPosts(
+    currentPage,
+    postPerPage,
+    search,
+  );
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     const searchQuery = e.target.searchQuery.value;
     setSearch(searchQuery);
   };
+
+  if (isError) {
+    return <ErrorElement />;
+  }
 
   if (isPending) {
     return <Loader />;
@@ -33,7 +42,7 @@ const AllVolunteerOpportunities = () => {
       </HelmetProvider>
       <div className="mx-auto  max-w-screen-2xl px-4 ">
         <div className=" my-16 text-center">
-          <h2 className="mx-auto  max-w-xl text-4xl  font-black uppercase text-primary lg:text-5xl">
+          <h2 className="mx-auto  max-w-xl text-4xl  font-black uppercase text-primary lg:text-5xl dark:text-white">
             All Volunteer Opportunities
           </h2>
           <div className="my-8 flex flex-col-reverse items-center justify-center gap-4 md:flex-row md:justify-end">

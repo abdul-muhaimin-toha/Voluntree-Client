@@ -1,4 +1,6 @@
 import Hero from "../components/Hero";
+import QAndN from "../components/QAndN";
+import ContactUs from "../components/ContactUs";
 
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import VolunteersNeedNow from "../components/VolunteersNeedNow";
@@ -13,6 +15,8 @@ const HomePage = () => {
       </HelmetProvider>
       <Hero />
       <VolunteersNeedNow />
+      <QAndN />
+      <ContactUs />
     </>
   );
 };

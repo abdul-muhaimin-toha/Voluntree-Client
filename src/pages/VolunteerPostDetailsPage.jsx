@@ -2,13 +2,14 @@ import useSinglePost from "../hooks/useSinglePost";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import Loader from "../components/Loader";
+import ErrorElement from "../components/ErrorElement";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 
 const VolunteerPostDetailsPage = () => {
   const { id } = useParams();
-  const { data, isPending } = useSinglePost(id);
+  const { data, isPending, isError } = useSinglePost(id);
   const navigate = useNavigate();
   const { user } = useAuth();
 
@@ -39,6 +40,10 @@ const VolunteerPostDetailsPage = () => {
 
     navigate(`/be-a-volunteer/${id}`);
   };
+
+  if (isError) {
+    return <ErrorElement />;
+  }
 
   if (isPending) {
     return <Loader />;
