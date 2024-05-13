@@ -1,7 +1,7 @@
 import AllOpportunityTableRow from "./AllOpportunityTableRow";
 import PropTypes from "prop-types";
 
-const AllOportunityTable = ({ posts }) => {
+const AllOportunityTable = ({ posts, currentPage, postPerPage }) => {
   return (
     <div className="mx-auto max-w-screen-2xl">
       <div className="flex items-center justify-center ">
@@ -26,6 +26,8 @@ const AllOportunityTable = ({ posts }) => {
                     key={post._id}
                     post={post}
                     index={index}
+                    currentPage={currentPage}
+                    postPerPage={postPerPage}
                   />
                 ))}
               </tbody>
@@ -51,6 +53,8 @@ const AllOportunityTable = ({ posts }) => {
 
 AllOportunityTable.propTypes = {
   posts: PropTypes.array,
+  currentPage: PropTypes.number,
+  postPerPage: PropTypes.number,
 };
 
 export default AllOportunityTable;

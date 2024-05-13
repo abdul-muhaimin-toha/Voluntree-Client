@@ -84,13 +84,17 @@ const AllVolunteerOpportunities = () => {
             ))}
           </div>
         ) : (
-          <AllOportunityTable posts={data} />
+          <AllOportunityTable
+            posts={data}
+            currentPage={currentPage}
+            postPerPage={postPerPage}
+          />
         )}
 
         <div className="mb-20 mt-20">
           <Pagination
-            currentPage={currentPage}
             setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
             postPerPage={postPerPage}
             search={search}
           />

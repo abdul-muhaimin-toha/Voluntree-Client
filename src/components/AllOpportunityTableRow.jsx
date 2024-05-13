@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const AllOpportunityTableRow = ({ post, index }) => {
+const AllOpportunityTableRow = ({ post, index, currentPage, postPerPage }) => {
   const {
     _id,
     title,
@@ -14,7 +14,9 @@ const AllOpportunityTableRow = ({ post, index }) => {
 
   return (
     <tr className="">
-      <th className="text-[#5FA4E6]">{index + 1}</th>
+      <th className="text-[#5FA4E6]">
+        {index + 1 + currentPage * postPerPage}
+      </th>
       <td className="capitalize">{title}</td>
       <td className="capitalize">{category}</td>
       <td>{new Date(deadline).toLocaleDateString()}</td>
@@ -38,6 +40,8 @@ const AllOpportunityTableRow = ({ post, index }) => {
 AllOpportunityTableRow.propTypes = {
   post: PropTypes.object,
   index: PropTypes.number,
+  currentPage: PropTypes.number,
+  postPerPage: PropTypes.number,
 };
 
 export default AllOpportunityTableRow;
