@@ -2,6 +2,7 @@ import { MdCancel } from "react-icons/md";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import PropTypes from "prop-types";
 
 const MyRequestPostTableRow = ({ post, index, refetch }) => {
   const axiosSecure = useAxiosSecure();
@@ -77,6 +78,12 @@ const MyRequestPostTableRow = ({ post, index, refetch }) => {
       </td>
     </tr>
   );
+};
+
+MyRequestPostTableRow.propTypes = {
+  post: PropTypes.object,
+  index: PropTypes.number,
+  refetch: PropTypes.func,
 };
 
 export default MyRequestPostTableRow;

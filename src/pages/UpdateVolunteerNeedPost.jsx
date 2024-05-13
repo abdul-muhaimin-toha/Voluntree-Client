@@ -1,5 +1,4 @@
 import useAxiosSecure from "../hooks/useAxiosSecure";
-import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import DatePicker from "react-datepicker";
@@ -12,7 +11,6 @@ import ErrorElement from "../components/ErrorElement";
 
 const UpdateVolunteerNeedPost = () => {
   const axiosSecure = useAxiosSecure();
-  const { user } = useAuth();
   const { id } = useParams();
   const { data, isPending, refetch, isError } = useSinglePost(id);
   const [startDate, setStartDate] = useState(new Date());

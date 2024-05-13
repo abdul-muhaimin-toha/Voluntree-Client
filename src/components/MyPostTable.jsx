@@ -19,7 +19,7 @@ const MyPostTable = () => {
     return (
       <div className="mt-10 flex flex-col items-center justify-center gap-6">
         <p className="text-center text-xl font-bold">
-          You haven't posted anything yet!
+          You haven&apos;t posted anything yet!
         </p>
         <Link
           to="/add-volunteer-post"

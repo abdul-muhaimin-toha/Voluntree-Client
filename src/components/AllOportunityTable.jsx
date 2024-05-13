@@ -1,4 +1,5 @@
 import AllOpportunityTableRow from "./AllOpportunityTableRow";
+import PropTypes from "prop-types";
 
 const AllOportunityTable = ({ posts }) => {
   return (
@@ -46,6 +47,10 @@ const AllOportunityTable = ({ posts }) => {
       </div>
     </div>
   );
+};
+
+AllOportunityTable.propTypes = {
+  posts: PropTypes.array,
 };
 
 export default AllOportunityTable;

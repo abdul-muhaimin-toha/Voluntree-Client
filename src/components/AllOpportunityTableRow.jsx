@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const AllOpportunityTableRow = ({ post, index }) => {
   const {
@@ -32,6 +33,11 @@ const AllOpportunityTableRow = ({ post, index }) => {
       </td>
     </tr>
   );
+};
+
+AllOpportunityTableRow.propTypes = {
+  post: PropTypes.object,
+  index: PropTypes.number,
 };
 
 export default AllOpportunityTableRow;

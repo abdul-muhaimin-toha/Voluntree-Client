@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import defaultThumbnail from "../assets/image-not-available.webp";
+import PropTypes from "prop-types";
 
 const AllPostPageCard = ({ post }) => {
   const { _id, title, thumbnail_URL, deadline, category, organizer_name } =
@@ -37,6 +38,10 @@ const AllPostPageCard = ({ post }) => {
       </div>
     </div>
   );
+};
+
+AllPostPageCard.propTypes = {
+  post: PropTypes.object,
 };
 
 export default AllPostPageCard;

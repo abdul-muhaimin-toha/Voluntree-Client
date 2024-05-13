@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import PropTypes from "prop-types";
 
 const Pagination = ({ currentPage, setCurrentPage, postPerPage, search }) => {
   const axiosSecure = useAxiosSecure();
@@ -81,6 +82,13 @@ const Pagination = ({ currentPage, setCurrentPage, postPerPage, search }) => {
       </div>
     );
   }
+};
+
+Pagination.propTypes = {
+  currentPage: PropTypes.number,
+  setCurrentPage: PropTypes.func,
+  postPerPage: PropTypes.number,
+  search: PropTypes.string,
 };
 
 export default Pagination;

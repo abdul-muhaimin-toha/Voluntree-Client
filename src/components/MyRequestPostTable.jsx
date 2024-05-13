@@ -19,7 +19,7 @@ const MyRequestPostTable = () => {
     return (
       <div className="mt-10 flex flex-col items-center justify-center gap-6">
         <p className="text-center text-xl font-bold">
-          You haven't applied anywhere yet!
+          You haven&apos;t applied anywhere yet!
         </p>
         <Link
           to="/volunteer-opportunities"
@@ -42,7 +42,7 @@ const MyRequestPostTable = () => {
             <th>Deadline</th>
             <th>Location</th>
             <th>Volunteers Need</th>
-            <th>Organizer's Name</th>
+            <th>Organizer&apos;s Name</th>
             <th>Cancel</th>
           </tr>
         </thead>
@@ -64,7 +64,7 @@ const MyRequestPostTable = () => {
             <th>Deadline</th>
             <th>Location</th>
             <th>Volunteers Need</th>
-            <th>Organizer's Name</th>
+            <th>Organizer&apos;s Name</th>
             <th>Cancel</th>
           </tr>
         </tfoot>

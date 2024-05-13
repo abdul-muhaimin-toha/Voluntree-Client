@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import thumbnailDefault from "../assets/image-not-available.webp";
+import PropTypes from "prop-types";
 
 const HomeVolunteerNeedCard = ({ post }) => {
   const { _id, title, thumbnail_URL, deadline, category } = post || {};
@@ -32,6 +33,10 @@ const HomeVolunteerNeedCard = ({ post }) => {
       </div>
     </div>
   );
+};
+
+HomeVolunteerNeedCard.propTypes = {
+  post: PropTypes.object,
 };
 
 export default HomeVolunteerNeedCard;

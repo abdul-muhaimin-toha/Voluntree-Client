@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { FaPenToSquare, FaTrash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const MyPostTableRow = ({ post, index, refetch }) => {
   const axiosSecure = useAxiosSecure();
@@ -74,6 +75,12 @@ const MyPostTableRow = ({ post, index, refetch }) => {
       </td>
     </tr>
   );
+};
+
+MyPostTableRow.propTypes = {
+  post: PropTypes.object,
+  index: PropTypes.number,
+  refetch: PropTypes.func,
 };
 
 export default MyPostTableRow;

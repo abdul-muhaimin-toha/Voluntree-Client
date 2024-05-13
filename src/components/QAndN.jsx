@@ -17,7 +17,7 @@ const QAndN = () => {
               </div>
               <div className="collapse-content">
                 <p>
-                  Signing up to voluntree is easy! Just visit our website's
+                  Signing up to voluntree is easy! Just visit our website&apos;s
                   volunteer page and fill out the registration form. Once
                   submitted, our team will review your application and get in
                   touch with you regarding available opportunities.
@@ -32,11 +32,11 @@ const QAndN = () => {
               <div className="collapse-content">
                 <p>
                   We offer a wide range of volunteer opportunities to suit
-                  various interests and skills. Whether you're passionate about
-                  environmental conservation, community outreach, or education,
-                  we have something for everyone. Our opportunities include
-                  event support, administrative tasks, mentorship programs, and
-                  more.
+                  various interests and skills. Whether you&apos;re passionate
+                  about environmental conservation, community outreach, or
+                  education, we have something for everyone. Our opportunities
+                  include event support, administrative tasks, mentorship
+                  programs, and more.
                 </p>
               </div>
             </div>
@@ -49,8 +49,8 @@ const QAndN = () => {
                 <p>
                   Absolutely! Volunteering with friends or family can be a
                   rewarding experience. When signing up, you can indicate if
-                  you'd like to volunteer with specific individuals, and we'll
-                  do our best to accommodate your request.
+                  you&apos;d like to volunteer with specific individuals, and
+                  we&apos;ll do our best to accommodate your request.
                 </p>
               </div>
             </div>
