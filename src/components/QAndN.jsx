@@ -25,7 +25,7 @@ const QAndN = () => {
               </div>
             </div>
             <div className="collapse join-item collapse-arrow border border-primary p-2 text-black dark:border-white  dark:text-white">
-              <input type="radio" name="my-accordion-4" defaultChecked />
+              <input type="radio" name="my-accordion-4" />
               <div className="collapse-title text-xl font-medium">
                 What kind of volunteer opportunities do you offer?
               </div>
@@ -41,7 +41,7 @@ const QAndN = () => {
               </div>
             </div>
             <div className="collapse join-item collapse-arrow border border-primary p-2 text-black dark:border-white  dark:text-white">
-              <input type="radio" name="my-accordion-4" defaultChecked />
+              <input type="radio" name="my-accordion-4" />
               <div className="collapse-title text-xl font-medium">
                 Can I volunteer with my friends or family?
               </div>
@@ -55,7 +55,7 @@ const QAndN = () => {
               </div>
             </div>
             <div className="collapse join-item collapse-arrow border border-primary p-2 text-black dark:border-white  dark:text-white">
-              <input type="radio" name="my-accordion-4" defaultChecked />
+              <input type="radio" name="my-accordion-4" />
               <div className="collapse-title text-xl font-medium">
                 Do you provide training for volunteers?
               </div>
@@ -70,7 +70,7 @@ const QAndN = () => {
               </div>
             </div>
             <div className="collapse join-item collapse-arrow border border-primary p-2 text-black dark:border-white  dark:text-white">
-              <input type="radio" name="my-accordion-4" defaultChecked />
+              <input type="radio" name="my-accordion-4" />
               <div className="collapse-title text-xl font-medium">
                 How much time commitment is required for volunteering?
               </div>
@@ -85,7 +85,7 @@ const QAndN = () => {
               </div>
             </div>
             <div className="collapse join-item collapse-arrow border border-primary p-2 text-black dark:border-white  dark:text-white">
-              <input type="radio" name="my-accordion-4" defaultChecked />
+              <input type="radio" name="my-accordion-4" />
               <div className="collapse-title text-xl font-medium">
                 Can I volunteer remotely?
               </div>
@@ -100,7 +100,7 @@ const QAndN = () => {
               </div>
             </div>
             <div className="collapse join-item collapse-arrow border border-primary p-2 text-black dark:border-white  dark:text-white">
-              <input type="radio" name="my-accordion-4" defaultChecked />
+              <input type="radio" name="my-accordion-4" />
               <div className="collapse-title text-xl font-medium">
                 How can I track my volunteer hours?
               </div>

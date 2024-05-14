@@ -57,7 +57,7 @@ const Pagination = ({ currentPage, setCurrentPage, postPerPage, search }) => {
             key={index}
             type="button"
             onClick={handleCurrentPage}
-            className={`inline-flex h-8 w-8 items-center justify-center rounded border text-sm font-semibold shadow-md hover:bg-primary hover:text-white dark:border-0 dark:bg-white ${currentPage === page ? "bg-primary text-white" : ""} `}
+            className={`inline-flex h-8 w-8 items-center justify-center rounded border text-sm font-semibold shadow-md hover:bg-primary hover:text-white dark:border-0 dark:bg-white dark:text-primary ${currentPage === page ? "bg-primary text-white" : ""} `}
           >
             {page + 1}
           </button>
