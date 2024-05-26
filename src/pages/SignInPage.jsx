@@ -17,7 +17,7 @@ const SignInPage = () => {
     reset,
   } = useForm();
 
-  const { setIsLoading, emailPassLogin, googleLogin, githubLogin } = useAuth();
+  const { emailPassLogin, googleLogin, githubLogin } = useAuth();
 
   const handleFormSubmit = (data) => {
     const { email, password } = data;
@@ -47,7 +47,6 @@ const SignInPage = () => {
           },
         });
       });
-    setIsLoading(false);
   };
 
   const handleGoogleLogin = () => {
@@ -75,7 +74,6 @@ const SignInPage = () => {
           },
         });
       });
-    setIsLoading(false);
   };
 
   const handleGithubLogin = () => {
@@ -103,7 +101,6 @@ const SignInPage = () => {
           },
         });
       });
-    setIsLoading(false);
   };
 
   return (

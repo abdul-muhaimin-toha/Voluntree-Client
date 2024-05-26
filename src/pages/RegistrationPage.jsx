@@ -20,8 +20,7 @@ const RegistrationPage = () => {
     reset,
   } = useForm();
 
-  const { setIsLoading, logout, createNewUser, googleLogin, githubLogin } =
-    useAuth();
+  const { logout, createNewUser, googleLogin, githubLogin } = useAuth();
 
   const handleRandomPass = () => {
     setIsPassVisible(true);
@@ -66,7 +65,6 @@ const RegistrationPage = () => {
           },
         });
       });
-    setIsLoading(false);
   };
 
   const handleGoogleLogin = () => {
@@ -94,7 +92,6 @@ const RegistrationPage = () => {
           },
         });
       });
-    setIsLoading(false);
   };
 
   const handleGithubLogin = () => {
@@ -122,7 +119,6 @@ const RegistrationPage = () => {
           },
         });
       });
-    setIsLoading(false);
   };
 
   return (
