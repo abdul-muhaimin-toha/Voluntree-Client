@@ -3,6 +3,7 @@ import "react-tabs/style/react-tabs.css";
 import MyPostTable from "../components/MyPostTable";
 import MyRequestPostTable from "../components/MyRequestPostTable";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import VolunteersApplicationTable from "../components/VolunteersApplicationTable";
 
 const MyPostPage = () => {
   return (
@@ -23,17 +24,21 @@ const MyPostPage = () => {
                 <Tab>
                   <span className="text-xs md:text-lg">My Posts</span>
                 </Tab>
-
                 <Tab>
                   <span className="text-xs md:text-lg">
-                    {" "}
-                    My Requested Posts
+                    Volunteer&apos;s Application to My Posts
                   </span>
+                </Tab>
+                <Tab>
+                  <span className="text-xs md:text-lg">My Requested Posts</span>
                 </Tab>
               </TabList>
 
               <TabPanel className="mt-6">
                 <MyPostTable />
+              </TabPanel>
+              <TabPanel className="mt-6">
+                <VolunteersApplicationTable />
               </TabPanel>
               <TabPanel className="mt-6">
                 <MyRequestPostTable />

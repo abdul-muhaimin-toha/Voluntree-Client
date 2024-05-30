@@ -6,15 +6,8 @@ import PropTypes from "prop-types";
 
 const MyRequestPostTableRow = ({ post, index, refetch }) => {
   const axiosSecure = useAxiosSecure();
-  const {
-    _id,
-    title,
-    category,
-    deadline,
-    location,
-    volunteers_needed,
-    organizer_name,
-  } = post || {};
+  const { _id, title, category, deadline, location, status, organizer_name } =
+    post || {};
 
   const handleCancelApplication = (e) => {
     e.preventDefault();
@@ -66,8 +59,8 @@ const MyRequestPostTableRow = ({ post, index, refetch }) => {
       <td className="capitalize">{category}</td>
       <td>{new Date(deadline).toLocaleDateString()}</td>
       <td>{location}</td>
-      <td>{volunteers_needed}</td>
       <td>{organizer_name}</td>
+      <td className="font-extrabold text-primary">{status}</td>
       <td>
         <button
           onClick={handleCancelApplication}

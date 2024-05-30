@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import useMyAppliedPost from "../hooks/useMyApplirdPost";
-import MyRequestPostTableRow from "./MyRequestPostTableRow";
 import Loader from "./Loader";
 import ErrorElement from "./ErrorElement";
+import useApplicationToMe from "../hooks/useApplicationToMe";
+import VolunteersApplicationTableRow from "./VolunteersApplicationTableRow";
 
-const MyRequestPostTable = () => {
-  const { data, isPending, refetch, isError } = useMyAppliedPost();
+const VolunteersApplicationTable = () => {
+  // const { data, isPending, refetch, isError } = useMyAppliedPost();
+  const { data, isPending, refetch, isError } = useApplicationToMe();
 
   if (isError) {
     return <ErrorElement />;
@@ -38,17 +39,16 @@ const MyRequestPostTable = () => {
           <tr>
             <th></th>
             <th>Post Title</th>
-            <th>Category</th>
-            <th>Deadline</th>
-            <th>Location</th>
-            <th>Organizer&apos;s Name</th>
+            <th>Applicant Name</th>
+            <th>Applicant Email</th>
             <th>Status</th>
-            <th>Cancel</th>
+            <th>Accept</th>
+            <th>Decline</th>
           </tr>
         </thead>
         <tbody>
           {data?.map((post, index) => (
-            <MyRequestPostTableRow
+            <VolunteersApplicationTableRow
               key={post._id}
               refetch={refetch}
               post={post}
@@ -60,12 +60,11 @@ const MyRequestPostTable = () => {
           <tr>
             <th></th>
             <th>Post Title</th>
-            <th>Category</th>
-            <th>Deadline</th>
-            <th>Location</th>
-            <th>Organizer&apos;s Name</th>
+            <th>Applicant Name</th>
+            <th>Applicant Email</th>
             <th>Status</th>
-            <th>Cancel</th>
+            <th>Accept</th>
+            <th>Decline</th>
           </tr>
         </tfoot>
       </table>
@@ -73,4 +72,4 @@ const MyRequestPostTable = () => {
   );
 };
 
-export default MyRequestPostTable;
+export default VolunteersApplicationTable;

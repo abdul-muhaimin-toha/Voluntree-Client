@@ -27,14 +27,14 @@ const AuthContextProvider = ({ children }) => {
       if (signedInUser) {
         setUser(signedInUser);
         axios
-          .post("https://voluntree-server.vercel.app/jwt", loggedUser, {
+          .post("http://localhost:3000/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => console.log(res.data));
       } else {
         setUser(null);
         axios
-          .post("https://voluntree-server.vercel.app/logout", loggedUser, {
+          .post("http://localhost:3000/logout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => console.log(res.data));
