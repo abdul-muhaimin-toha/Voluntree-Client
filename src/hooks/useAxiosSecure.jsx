@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 
 const axiosSecure = axios.create({
-  baseURL: "https://voluntree-server.vercel.app",
+  baseURL: "https://voluntree-server.vercel.app/",
   withCredentials: true,
 });
 
