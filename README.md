@@ -6,9 +6,9 @@
 
 [Live Website Link](https://voluntree-go.netlify.app/)
 
-[Client Site Repository Link](https://github.com/Porgramming-Hero-web-course/b9a11-client-side-abdul-muhaimin-toha)
+[Client Site Repository Link](https://github.com/abdul-muhaimin-toha/Voluntree-Client)
 
-[Server Site Repository Link](https://github.com/Porgramming-Hero-web-course/b9a11-server-side-abdul-muhaimin-toha)
+[Server Site Repository Link](https://github.com/abdul-muhaimin-toha/Voluntree-Server)
 
 #### Post Management:
 
