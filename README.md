@@ -1,9 +1,5 @@
 # Voluntree Client
 
-### Assignment_ID: assignment_category_0010
-
-### Milestone: 11, Assignment: 11 (Voluntree). Project based assignment for Progmming Hero course.
-
 [Live Website Link](https://voluntree-go.netlify.app/)
 
 [Client Site Repository Link](https://github.com/abdul-muhaimin-toha/Voluntree-Client)
