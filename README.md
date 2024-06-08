@@ -1,5 +1,7 @@
 # Voluntree Client
 
+Voluntree is a secure, responsive platform connecting volunteers with opportunities through user-friendly post management and search functionalities. Powered by Node.js, Express.js, MongoDB, and React, it ensures robust authentication and a seamless experience across devices.
+
 [Live Website Link](https://voluntree-go.netlify.app/)
 
 [Client Site Repository Link](https://github.com/abdul-muhaimin-toha/Voluntree-Client)
